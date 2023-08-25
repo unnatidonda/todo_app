@@ -22,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.lightGreen,
         title: const Text(
           "Home Screen",
           style: TextStyle(
