@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightGreen,
+        backgroundColor: Colors.green,
         title: const Text(
           "Home Screen",
           style: TextStyle(
@@ -33,84 +33,87 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.only(top: 30),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      textAlign: TextAlign.start,
-                      "Student  : Unnati Donda",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 26,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    Text(
-                      textAlign: TextAlign.start,
-                      "percentage : 90%",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 26,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    Text(
-                      textAlign: TextAlign.center,
-                      "time:12.30",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 26,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 60),
-                  child: PopupMenuButton<SampleItem>(
-                    initialValue: selectedMenu,
-                    // Callback that sets the selected popup menu item.
-                    onSelected: (SampleItem item) {
-                      setState(() {
-                        selectedMenu = item;
-                      });
-                    },
-                    itemBuilder: (BuildContext context) => <PopupMenuEntry<SampleItem>>[
-                      const PopupMenuItem<SampleItem>(
-                        value: SampleItem.itemOne,
-                        child: Text(
-                          "delete",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w700,
-                            fontSize: 18,
-                            color: Colors.black,
-                          ),
+            Container(
+              height: 280,
+              width: double.infinity,
+              color: Colors.greenAccent,
+              child: Row(
+                children: [
+                  const Column(
+                    children: [
+                      Text(
+                        textAlign: TextAlign.start,
+                        " # Student History : ",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 26,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
-                      const PopupMenuItem<SampleItem>(
-                        value: SampleItem.itemTwo,
-                        child: Text(
-                          "Edite",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w700,
-                            fontSize: 18,
-                            color: Colors.black,
-                          ),
+                      Text(
+                        textAlign: TextAlign.start,
+                        " 1 Surname : Donda \n      Name : Unnati  \n      Hobby : Traveling  \n      Study : BCA running",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 26,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      SizedBox(height: 50),
+                      Text(
+                        textAlign: TextAlign.start,
+                        "time:12.30 & 4.00",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 26,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                     ],
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.only(left: 80),
+                    child: PopupMenuButton<SampleItem>(
+                      initialValue: selectedMenu,
+                      // Callback that sets the selected popup menu item.
+                      onSelected: (SampleItem item) {
+                        setState(() {
+                          selectedMenu = item;
+                        });
+                      },
+                      itemBuilder: (BuildContext context) => <PopupMenuEntry<SampleItem>>[
+                        const PopupMenuItem<SampleItem>(
+                          value: SampleItem.itemOne,
+                          child: Text(
+                            "delete",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 18,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        const PopupMenuItem<SampleItem>(
+                          value: SampleItem.itemTwo,
+                          child: Text(
+                            "Edite",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 18,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-            const SizedBox(height: 580),
+            const SizedBox(height: 400),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
