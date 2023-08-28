@@ -23,7 +23,7 @@ class _SplashViewScreenState extends State<SplashViewScreen> with TickerProvider
   iconAnimation() => Future.delayed(const Duration(milliseconds: 80), () => isAnimate = true);
 
   navigate() {
-    Future.delayed(const Duration(seconds: 13), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(
