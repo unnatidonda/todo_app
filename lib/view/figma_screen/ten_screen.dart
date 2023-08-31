@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../model/third_to_do_model.dart';
+
 class TenScreen extends StatefulWidget {
   const TenScreen({super.key});
 
@@ -8,68 +10,15 @@ class TenScreen extends StatefulWidget {
 }
 
 class _TenScreenState extends State<TenScreen> {
-  Map mapdata = {
-    "text": "",
-  };
+  List<thirdToDoModel> historyList = [];
 
-  List<Map<String, dynamic>> historyList = [
-    {
-      "text": "",
-      "image": "assets/images/wash_history_image.png",
-      "price": "\$5.43",
-      "time": "4:54 Min",
-      "map_image": "assets/images/map_pin.png",
-      "place": "1234 Barclay St, New York",
-    },
-    {
-      "text": "",
-      "image": "assets/images/wash_history_image.png",
-      "price": "\$5.43",
-      "time": "4:54 Min",
-      "map_image": "assets/images/map_pin.png",
-      "place": "1234 Barclay St, New York",
-    },
-    {
-      "text": "white color",
-      "image": "assets/images/wash_history_image.png",
-      "price": "\$5.43",
-      "time": "4:54 Min",
-      "map_image": "assets/images/map_pin.png",
-      "place": "1234 Barclay St, New York",
-    },
-    {
-      "text": "white color",
-      "map_image": "assets/images/map_pin.png",
-      "image": "assets/images/wash_history_image.png",
-      "price": "\$5.43",
-      "time": "4:54 Min",
-      "place": "1234 Barclay St, New York",
-    },
-    {
-      "text": "",
-      "image": "assets/images/wash_history_image.png",
-      "price": "\$5.43",
-      "map_image": "assets/images/map_pin.png",
-      "time": "4:54 Min",
-      "place": "1234 Barclay St, New York",
-    },
-    {
-      "text": "",
-      "image": "assets/images/wash_history_image.png",
-      "price": "\$5.43",
-      "time": "4:54 Min",
-      "map_image": "assets/images/map_pin.png",
-      "place": "1234 Barclay St, New York",
-    },
-    {
-      "text": "",
-      "image": "assets/images/wash_history_image.png",
-      "price": "\$5.43",
-      "time": "4:54 Min",
-      "map_image": "assets/images/map_pin.png",
-      "place": "1234 Barclay St, New York",
-    },
-  ];
+  @override
+  void initState() {
+    // TODO: implement initState
+    historyList = historyList.map((value) => thirdToDoModel.fromJson(value as Map<String, dynamic>)).toList();
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +33,7 @@ class _TenScreenState extends State<TenScreen> {
             child: Padding(
               padding: const EdgeInsets.only(left: 10, right: 10),
               child: ListView.builder(
-                itemCount: 5,
+                itemCount: historyList.length,
                 itemBuilder: (context, index) => Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
@@ -131,12 +80,12 @@ class _TenScreenState extends State<TenScreen> {
                               Row(
                                 children: [
                                   Image.asset(
-                                    historyList[index]["image"],
+                                    historyList[index].image!,
                                     width: screenWidth / 5.6,
                                     height: screenHeight / 18,
                                   ),
                                   Text(
-                                    historyList[index]["time"],
+                                    historyList[index].time!,
                                     style: const TextStyle(
                                       fontWeight: FontWeight.w700,
                                       fontSize: 17,
@@ -145,7 +94,7 @@ class _TenScreenState extends State<TenScreen> {
                                   ),
                                   SizedBox(width: screenWidth / 3.5),
                                   Text(
-                                    historyList[index]["price"],
+                                    historyList[index].price!,
                                     style: const TextStyle(
                                       fontWeight: FontWeight.w700,
                                       fontSize: 17,
@@ -158,13 +107,13 @@ class _TenScreenState extends State<TenScreen> {
                                 children: [
                                   SizedBox(width: screenWidth / 5.5),
                                   Image.asset(
-                                    historyList[index]["map_image"],
+                                    historyList[index].mapImage!,
                                     width: screenWidth / 20,
                                     height: 30,
                                   ),
                                   SizedBox(width: screenWidth / 50),
                                   Text(
-                                    historyList[index]["place"],
+                                    historyList[index].place!,
                                     style: const TextStyle(
                                       fontWeight: FontWeight.w700,
                                       fontSize: 14,
