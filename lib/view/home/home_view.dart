@@ -13,18 +13,18 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  List<ToDoModel> toDoModelList = []; // To Store List Of Map Data in List Of Model
+  List<ToDoModelData> toDoModelList = []; // To Store List Of Map Data in List Of Model
 
-  ToDoModel? toDoModel; // To store map data in model
+  ToDoModelData? toDoModel; // To store map data in model
 
   SecondToDoModel? secondToDoModel; // To store map data in model with sub list of map to list of model and map to model store
 
   @override
   void initState() {
     // TODO: implement initState
-    toDoModelList = toDoDummyList.map((value) => ToDoModel.fromJson(value)).toList(); // To Convert List of Map Data In List Of Model to store
+    toDoModelList = toDoDummyList.map((value) => ToDoModelData.fromJson(value)).toList(); // To Convert List of Map Data In List Of Model to store
 
-    toDoModel = ToDoModel.fromJson(data); // to convert map data in model to store
+    toDoModel = ToDoModelData.fromJson(data); // to convert map data in model to store
 
     secondToDoModel = SecondToDoModel.fromJson(secondToDoData); // To convert map data in model with sub list of map to list of model and map to model converter
 

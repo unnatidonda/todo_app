@@ -10,20 +10,11 @@ class NineScreen extends StatefulWidget {
 }
 
 class _NineScreenState extends State<NineScreen> {
-  List<ToDoModel> dummyList = []; // To Store List Of Map Data in List Of Model
-
-  // ToDoModel? toDoModel; // To store map data in model
-  //
-  // SecondToDoModel? secondToDoModel;
-
+  List<ToDoModelData> dummyList = [];
   @override
   void initState() {
     // TODO: implement initState
-    dummyList = dummyList.map((value) => ToDoModel.fromJson(value as Map<String, dynamic>)).toList();
-
-    // toDoModel = ToDoModel.fromJson(data);
-
-    // secondToDoModel = SecondToDoModel.fromJson(secondToDoData);
+    dummyList = dummyList.map((value) => ToDoModelData.fromJson(value as Map<String, dynamic>)).toList();
 
     super.initState();
   }
@@ -116,7 +107,8 @@ class _NineScreenState extends State<NineScreen> {
                         Stack(
                           children: [
                             Image.asset(
-                              "image: ${dummyList[index].image}",
+                              // "assets/images/room.png",
+                              dummyList[index].image!,
                               width: 273,
                               height: 234,
                             ),

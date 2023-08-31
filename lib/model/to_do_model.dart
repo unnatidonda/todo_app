@@ -1,23 +1,15 @@
-class ToDoModel {
-  int? id;
+class ToDoModelData {
   String? title;
-  String? content;
-  String? time;
+
   String? image;
 
-  ToDoModel({
-    this.id,
+  ToDoModelData({
     this.title,
-    this.content,
-    this.time,
     this.image,
   });
 
-  ToDoModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+  ToDoModelData.fromJson(Map<String, dynamic> json) {
     title = json['title'];
-    content = json['sub_title'];
-    time = json['time'];
     image = json['image'];
   }
 }
