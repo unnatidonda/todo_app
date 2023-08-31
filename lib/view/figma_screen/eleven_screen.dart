@@ -8,1079 +8,328 @@ class ElevenScreen extends StatefulWidget {
 }
 
 class _ElevenScreenState extends State<ElevenScreen> {
+  List<Map<String, dynamic>> arrayList = [
+    {
+      "color": const Color(0xFFF4F5F7),
+      "itemname": "Ultra adidas 4D shoes",
+      "image": "assets/images/shoes16.png",
+      "price": "\$110",
+    },
+    {
+      "color": const Color(0xFFF4F5F7),
+      "itemname": "Stan smith shoes.",
+      "image": "assets/images/shoes17.png",
+      "price": "\$110",
+    },
+    {
+      "color": const Color(0xFFF4F5F7),
+      "itemname": "4DWFWD x Parley",
+      "image": "assets/images/shoes18.png",
+      "price": "\$110",
+    },
+    {
+      "color": const Color(0xFFF4F5F7),
+      "itemname": "Adizero adios pro 3.0",
+      "image": "assets/images/shoes19.png",
+      "price": "\$110",
+    },
+  ];
+  List<Map<String, dynamic>> list = [
+    {
+      "color": const Color(0xFFF4F5F7),
+      "itemname": "Nike ACG Mountain Fly \nLow SE",
+      "image1": "assets/images/shoes20.png",
+      "price": "\$110",
+    },
+    {
+      "color": const Color(0xFFF4F5F7),
+      "itemname": "Nike Air Force 1 '07 ESS",
+      "image1": "assets/images/shoes21.png",
+      "price": "\$110",
+    },
+    {
+      "color": const Color(0xFFF4F5F7),
+      "itemname": "Nike Air Max Dawn SE",
+      "image1": "assets/images/shoes23.png",
+      "price": "\$110",
+    },
+    {
+      "color": const Color(0xFFF4F5F7),
+      "itemname": "Nike Wearallday",
+      "image1": "assets/images/shoes24.png",
+      "price": "\$110",
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Image.asset(
-                      "assets/images/Group 23.png",
-                      height: 15.39,
-                      width: 27.54,
-                    ),
-                    const SizedBox(width: 70),
-                    const Icon(
-                      Icons.location_on_outlined,
-                      weight: 12,
-                      size: 12,
-                      color: Color(0xFF000000),
-                    ),
-                    const Text(
-                      "15/2 New Texas",
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    const SizedBox(width: 110),
-                    Container(
-                      height: 38,
-                      width: 42,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: const Color(0xFFFBFBFD),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 10, top: 7),
-                        child: Stack(
+      backgroundColor: Colors.black,
+      body: Column(
+        children: [
+          Expanded(
+            child: GridView.builder(
+              itemCount: 4,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisExtent: 300,
+              ),
+              itemBuilder: (context, index) => Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: arrayList[index]["color"],
+                ),
+                child: Container(
+                  height: 294,
+                  width: 171,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFF000000),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Stack(
                           children: [
                             Image.asset(
-                              "assets/images/Notification.png",
-                              width: 18,
-                              height: 21,
+                              arrayList[index]["image"],
+                              height: 150,
+                              width: 171,
                             ),
-                            Image.asset(
-                              "assets/images/round.png",
-                              height: 10.12,
-                              width: 10.7,
+                            Container(
+                              height: 25,
+                              width: 82,
+                              decoration: const BoxDecoration(
+                                color: Color(0xFFFFFFFF),
+                              ),
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Row(
+                                  children: [
+                                    const SizedBox(width: 5),
+                                    Container(
+                                      height: 8,
+                                      width: 8,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xFF1EBC24),
+                                        borderRadius: BorderRadius.circular(100),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 5),
+                                    const Text(
+                                      "5,113 Sold",
+                                      style: TextStyle(
+                                        color: Color(0xFF000000),
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ),
                           ],
                         ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 30),
-                const Row(
-                  children: [
-                    Text(
-                      "Explore",
-                      style: TextStyle(
-                        fontSize: 32,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 15),
-                const Row(
-                  children: [
-                    Text(
-                      "Best Outfits for you",
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 10, top: 15, right: 10),
-                  child: Container(
-                    height: 55,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFFBFBFD),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Row(
-                      children: [
-                        Image.asset(
-                          "assets/images/search.png",
-                          width: 15,
-                          height: 15,
-                          color: Colors.grey,
+                        const SizedBox(height: 5),
+                        Text(
+                          arrayList[index]["itemname"],
+                          style: const TextStyle(
+                            color: Color(0xFFFFFFFF),
+                            fontSize: 16,
+                            fontFamily: "Satoshi",
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
-                        const SizedBox(width: 20),
+                        const SizedBox(height: 5),
                         const Text(
-                          "Search items...",
+                          "Men’s shoes",
                           style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 15,
+                            fontSize: 12,
+                            color: Color(0xFF92989E),
                           ),
                         ),
-                        const SizedBox(width: 150),
+                        const SizedBox(height: 5),
+                        Text(
+                          arrayList[index]["price"],
+                          style: const TextStyle(
+                            color: Color(0xFFFFFFFF),
+                            fontSize: 20,
+                            fontFamily: "Satoshi",
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        const SizedBox(height: 5),
                         Container(
-                          height: 43,
-                          width: 47,
+                          height: 40,
+                          width: 147,
                           decoration: BoxDecoration(
-                            color: const Color(0xFFF67952),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: Image.asset(
-                            "assets/images/Filter.png",
-                            // height: 17.13,
-                            // width: 18,
-                            color: const Color(0xFFFBFBFD),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 10, top: 20, right: 10),
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 75,
-                        width: 71,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          border: Border.all(
-                            width: 1,
-                            color: const Color(0x0d000000),
-                          ),
-                        ),
-                        child: Column(
-                          children: [
-                            Image.asset(
-                              "assets/images/dress.png",
-                              width: 27,
-                              height: 35.52,
+                            color: Colors.black,
+                            border: Border.all(
+                              color: Colors.white,
+                              width: 2,
                             ),
-                            const SizedBox(height: 15),
-                            const Text(
-                              "Dress",
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.only(top: 5.0),
+                            child: Text(
+                              textAlign: TextAlign.center,
+                              "Place Bid",
                               style: TextStyle(
-                                fontSize: 12,
-                                color: Color(0x80000000),
+                                color: Color(0xFFFFFFFF),
+                                fontWeight: FontWeight.w700,
+                                fontSize: 15,
+                                fontFamily: "Satoshi",
                               ),
                             ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 12, right: 10),
-                        child: Row(
-                          children: [
-                            Container(
-                              height: 75,
-                              width: 71,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                border: Border.all(
-                                  width: 1,
-                                  color: const Color(0xD000000),
-                                ),
-                              ),
-                              child: Column(
-                                children: [
-                                  Image.asset(
-                                    "assets/images/shirt.png",
-                                    width: 27,
-                                    height: 35.52,
-                                  ),
-                                  const SizedBox(height: 15),
-                                  const Text(
-                                    "Shirt",
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 12, right: 10),
-                        child: Row(
-                          children: [
-                            Container(
-                              height: 75,
-                              width: 71,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                border: Border.all(
-                                  width: 1,
-                                  color: const Color(0xD000000),
-                                ),
-                              ),
-                              child: Column(
-                                children: [
-                                  Image.asset(
-                                    "assets/images/pants.png",
-                                    width: 27,
-                                    height: 35.52,
-                                  ),
-                                  const SizedBox(height: 15),
-                                  const Text(
-                                    "Pants",
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      color: Color(0x80000000),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 12, right: 10),
-                        child: Row(
-                          children: [
-                            Container(
-                              height: 75,
-                              width: 71,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                border: Border.all(
-                                  width: 1,
-                                  color: const Color(0xD000000),
-                                ),
-                              ),
-                              child: Column(
-                                children: [
-                                  Image.asset(
-                                    "assets/images/tshirt.png",
-                                    width: 27,
-                                    height: 35.52,
-                                  ),
-                                  const SizedBox(height: 15),
-                                  const Text(
-                                    "Tshirt",
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      color: Color(0x80000000),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 30),
-                const Row(
-                  children: [
-                    Text(
-                      "Today’s Deal",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 22,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                    SizedBox(width: 170),
-                    Text(
-                      "See All",
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Color(0x80000000),
-                      ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        Container(
-                          height: 190,
-                          width: 154,
-                          decoration: BoxDecoration(
-                            color: const Color(0xFFFBFBFD),
-                            borderRadius: BorderRadius.circular(15),
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Color(0xFFEFEFF2),
-                                blurRadius: 10,
-                                offset: Offset(5, 10),
-                              ),
-                            ],
-                          ),
-                          child: Column(
-                            children: [
-                              Container(
-                                height: 133,
-                                width: 143,
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFFEFEFF2),
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                child: Image.asset(
-                                  "assets/images/66991d203bfd1ea71019a58df0246eff-removebg-preview.png",
-                                ),
-                              ),
-                              const Row(
-                                children: [
-                                  SizedBox(width: 7),
-                                  Text(
-                                    textAlign: TextAlign.start,
-                                    "Long Sleeve \nShirts",
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      color: Color(0xFF000000),
-                                    ),
-                                  ),
-                                  SizedBox(width: 40),
-                                  Text(
-                                    "\$165",
-                                    style: TextStyle(
-                                      color: Color(0xFF000000),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(width: 15),
-                        Container(
-                          height: 190,
-                          width: 154,
-                          decoration: BoxDecoration(
-                            color: const Color(0xFFFBFBFD),
-                            borderRadius: BorderRadius.circular(15),
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Color(0xFFEFEFF2),
-                                blurRadius: 10,
-                                offset: Offset(5, 10),
-                              ),
-                            ],
-                          ),
-                          child: Column(
-                            children: [
-                              Container(
-                                height: 133,
-                                width: 143,
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFFEFEFF2),
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                child: Image.asset(
-                                  "assets/images/0f76da755e29ab36163197ff151f8f97-removebg-preview.png",
-                                ),
-                              ),
-                              const Row(
-                                children: [
-                                  SizedBox(width: 7),
-                                  Text(
-                                    textAlign: TextAlign.start,
-                                    "Long Sleeve \nShirts",
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      color: Color(0xFF000000),
-                                    ),
-                                  ),
-                                  SizedBox(width: 40),
-                                  Text(
-                                    "\$165",
-                                    style: TextStyle(
-                                      color: Color(0xFF000000),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(width: 15),
-                        Container(
-                          height: 190,
-                          width: 154,
-                          decoration: BoxDecoration(
-                            color: const Color(0xFFFBFBFD),
-                            borderRadius: BorderRadius.circular(15),
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Color(0xFFEFEFF2),
-                                blurRadius: 10,
-                                offset: Offset(5, 10),
-                              ),
-                            ],
-                          ),
-                          child: Column(
-                            children: [
-                              Container(
-                                height: 133,
-                                width: 143,
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFFEFEFF2),
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                              ),
-                              const Row(
-                                children: [
-                                  SizedBox(width: 7),
-                                  Text(
-                                    textAlign: TextAlign.start,
-                                    "Long Sleeve \nShirts",
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      color: Color(0xFF000000),
-                                    ),
-                                  ),
-                                  SizedBox(width: 40),
-                                  Text(
-                                    "\$165",
-                                    style: TextStyle(
-                                      color: Color(0xFF000000),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
                           ),
                         ),
                       ],
                     ),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 20),
-                  child: Row(
-                    children: [
-                      Text(
-                        "Popular",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 22,
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),
-                      SizedBox(width: 170),
-                      Text(
-                        "See All",
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Color(0x80000000),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        Container(
-                          height: 194,
-                          width: 159,
-                          decoration: BoxDecoration(
-                            color: const Color(0xFFFBFBFD),
-                            borderRadius: BorderRadius.circular(15),
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Color(0xFFEFEFF2),
-                                blurRadius: 10,
-                                offset: Offset(5, 10),
-                              ),
-                            ],
-                          ),
-                          child: Column(
-                            children: [
-                              Container(
-                                height: 135.59,
-                                width: 144.77,
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFFEFEFF2),
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                              ),
-                              const Row(
-                                children: [
-                                  SizedBox(width: 7),
-                                  Text(
-                                    textAlign: TextAlign.start,
-                                    "Long Sleeve \nShirts",
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      color: Color(0xFF000000),
-                                    ),
-                                  ),
-                                  SizedBox(width: 40),
-                                  Text(
-                                    "\$165",
-                                    style: TextStyle(
-                                      color: Color(0xFF000000),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          height: 194,
-                          width: 159,
-                          decoration: BoxDecoration(
-                            color: const Color(0xFFFBFBFD),
-                            borderRadius: BorderRadius.circular(15),
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Color(0xFFEFEFF2),
-                                blurRadius: 10,
-                                offset: Offset(5, 10),
-                              ),
-                            ],
-                          ),
-                          child: Column(
-                            children: [
-                              Container(
-                                height: 135.59,
-                                width: 144.77,
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFFEFEFF2),
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                              ),
-                              const Row(
-                                children: [
-                                  SizedBox(width: 7),
-                                  Text(
-                                    textAlign: TextAlign.start,
-                                    "Long Sleeve \nShirts",
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      color: Color(0xFF000000),
-                                    ),
-                                  ),
-                                  SizedBox(width: 40),
-                                  Text(
-                                    "\$165",
-                                    style: TextStyle(
-                                      color: Color(0xFF000000),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          height: 194,
-                          width: 158,
-                          decoration: BoxDecoration(
-                            color: const Color(0xFFFBFBFD),
-                            borderRadius: BorderRadius.circular(15),
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Color(0xFFEFEFF2),
-                                blurRadius: 10,
-                                offset: Offset(5, 10),
-                              ),
-                            ],
-                          ),
-                          child: Column(
-                            children: [
-                              Container(
-                                height: 135.59,
-                                width: 144.77,
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFFEFEFF2),
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                              ),
-                              const Row(
-                                children: [
-                                  SizedBox(width: 7),
-                                  Text(
-                                    textAlign: TextAlign.start,
-                                    "Long Sleeve \nShirts",
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      color: Color(0xFF000000),
-                                    ),
-                                  ),
-                                  SizedBox(width: 40),
-                                  Text(
-                                    "\$165",
-                                    style: TextStyle(
-                                      color: Color(0xFF000000),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 20),
-                  child: Row(
-                    children: [
-                      Text(
-                        "New Arrival",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 22,
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 194,
-                        width: 159,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFFBFBFD),
-                          borderRadius: BorderRadius.circular(15),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Color(0xFFEFEFF2),
-                              blurRadius: 10,
-                              offset: Offset(5, 10),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 135.59,
-                              width: 144.77,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFEFEFF2),
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                            ),
-                            const Row(
-                              children: [
-                                SizedBox(width: 7),
-                                Text(
-                                  textAlign: TextAlign.start,
-                                  "Long Sleeve \nShirts",
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: Color(0xFF000000),
-                                  ),
-                                ),
-                                SizedBox(width: 40),
-                                Text(
-                                  "\$165",
-                                  style: TextStyle(
-                                    color: Color(0xFF000000),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 20),
-                      Container(
-                        height: 194,
-                        width: 159,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFFBFBFD),
-                          borderRadius: BorderRadius.circular(15),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Color(0xFFEFEFF2),
-                              blurRadius: 10,
-                              offset: Offset(5, 10),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 135.59,
-                              width: 144.77,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFEFEFF2),
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                            ),
-                            const Row(
-                              children: [
-                                SizedBox(width: 7),
-                                Text(
-                                  textAlign: TextAlign.start,
-                                  "Long Sleeve \nShirts",
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: Color(0xFF000000),
-                                  ),
-                                ),
-                                SizedBox(width: 40),
-                                Text(
-                                  "\$165",
-                                  style: TextStyle(
-                                    color: Color(0xFF000000),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 194,
-                        width: 158,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFFBFBFD),
-                          borderRadius: BorderRadius.circular(15),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Color(0xFFEFEFF2),
-                              blurRadius: 10,
-                              offset: Offset(5, 10),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 135.59,
-                              width: 144.77,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFEFEFF2),
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                            ),
-                            const Row(
-                              children: [
-                                SizedBox(width: 7),
-                                Text(
-                                  textAlign: TextAlign.start,
-                                  "Long Sleeve \nShirts",
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: Color(0xFF000000),
-                                  ),
-                                ),
-                                SizedBox(width: 40),
-                                Text(
-                                  "\$165",
-                                  style: TextStyle(
-                                    color: Color(0xFF000000),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 20),
-                      Container(
-                        height: 194,
-                        width: 158,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFFBFBFD),
-                          borderRadius: BorderRadius.circular(15),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Color(0xFFEFEFF2),
-                              blurRadius: 10,
-                              offset: Offset(5, 10),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 135.59,
-                              width: 144.77,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFEFEFF2),
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                            ),
-                            const Row(
-                              children: [
-                                SizedBox(width: 7),
-                                Text(
-                                  textAlign: TextAlign.start,
-                                  "Long Sleeve \nShirts",
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: Color(0xFF000000),
-                                  ),
-                                ),
-                                SizedBox(width: 40),
-                                Text(
-                                  "\$165",
-                                  style: TextStyle(
-                                    color: Color(0xFF000000),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 195,
-                        width: 158,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFFBFBFD),
-                          borderRadius: BorderRadius.circular(15),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Color(0xFFEFEFF2),
-                              blurRadius: 10,
-                              offset: Offset(5, 10),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 135.59,
-                              width: 144.77,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFEFEFF2),
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                            ),
-                            const Row(
-                              children: [
-                                SizedBox(width: 7),
-                                Text(
-                                  textAlign: TextAlign.start,
-                                  "Long Sleeve \nShirts",
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: Color(0xFF000000),
-                                  ),
-                                ),
-                                SizedBox(width: 40),
-                                Text(
-                                  "\$165",
-                                  style: TextStyle(
-                                    color: Color(0xFF000000),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 20),
-                      Container(
-                        height: 194,
-                        width: 158,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFFBFBFD),
-                          borderRadius: BorderRadius.circular(15),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Color(0xFFEFEFF2),
-                              blurRadius: 10,
-                              offset: Offset(5, 10),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 135.59,
-                              width: 144.77,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFEFEFF2),
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                            ),
-                            const Row(
-                              children: [
-                                SizedBox(width: 7),
-                                Text(
-                                  textAlign: TextAlign.start,
-                                  "Long Sleeve \nShirts",
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: Color(0xFF000000),
-                                  ),
-                                ),
-                                SizedBox(width: 40),
-                                Text(
-                                  "\$165",
-                                  style: TextStyle(
-                                    color: Color(0xFF000000),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 194,
-                        width: 159,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFFBFBFD),
-                          borderRadius: BorderRadius.circular(15),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Color(0xFFEFEFF2),
-                              blurRadius: 10,
-                              offset: Offset(5, 10),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 135.59,
-                              width: 144.77,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFEFEFF2),
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                            ),
-                            const Row(
-                              children: [
-                                SizedBox(width: 7),
-                                Text(
-                                  textAlign: TextAlign.start,
-                                  "Long Sleeve \nShirts",
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: Color(0xFF000000),
-                                  ),
-                                ),
-                                SizedBox(width: 40),
-                                Text(
-                                  "\$165",
-                                  style: TextStyle(
-                                    color: Color(0xFF000000),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 20),
-                      Container(
-                        height: 194,
-                        width: 158,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFFBFBFD),
-                          borderRadius: BorderRadius.circular(15),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Color(0xFFEFEFF2),
-                              blurRadius: 10,
-                              offset: Offset(5, 10),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 135.59,
-                              width: 144.77,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFEFEFF2),
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                            ),
-                            const Row(
-                              children: [
-                                SizedBox(width: 7),
-                                Text(
-                                  textAlign: TextAlign.start,
-                                  " Long Sleeve \nShirts",
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: Color(0xFF000000),
-                                  ),
-                                ),
-                                SizedBox(width: 40),
-                                Text(
-                                  "\$165",
-                                  style: TextStyle(
-                                    color: Color(0xFF000000),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
-        ),
+          SizedBox(height: 15),
+          Container(
+            height: 84,
+            width: 350,
+            decoration: const BoxDecoration(
+              color: Color(0xFF26282A),
+            ),
+            child: Image.asset(
+              "assets/images/nike.png",
+              height: 64,
+              width: 64,
+            ),
+          ),
+          // SizedBox(height: 15),
+          Expanded(
+            child: GridView.builder(
+              itemCount: list.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisExtent: 320,
+              ),
+              itemBuilder: (context, index) => Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: list[index]["color"],
+                ),
+                child: Container(
+                  height: 294,
+                  width: 171,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFF000000),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Stack(
+                          children: [
+                            Image.asset(
+                              arrayList[index]["image"],
+                              height: 150,
+                              width: 171,
+                            ),
+                            Container(
+                              height: 25,
+                              width: 82,
+                              decoration: const BoxDecoration(
+                                color: Color(0xFFFFFFFF),
+                              ),
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Row(
+                                  children: [
+                                    const SizedBox(width: 5),
+                                    Container(
+                                      height: 8,
+                                      width: 8,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xFF1EBC24),
+                                        borderRadius: BorderRadius.circular(100),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 5),
+                                    const Text(
+                                      "5,113 Sold",
+                                      style: TextStyle(
+                                        color: Color(0xFF000000),
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 5),
+                        Text(
+                          list[index]["itemname"],
+                          style: const TextStyle(
+                            color: Color(0xFFFFFFFF),
+                            fontSize: 13,
+                            fontFamily: "Satoshi",
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        const SizedBox(height: 3),
+                        const Text(
+                          "Men’s shoes",
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Color(0xFF92989E),
+                          ),
+                        ),
+                        const SizedBox(height: 5),
+                        Text(
+                          list[index]["price"],
+                          style: const TextStyle(
+                            color: Color(0xFFFFFFFF),
+                            fontSize: 20,
+                            fontFamily: "Satoshi",
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        const SizedBox(height: 5),
+                        Container(
+                          height: 40,
+                          width: 147,
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                            border: Border.all(
+                              color: Colors.white,
+                              width: 2,
+                            ),
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.only(top: 5.0),
+                            child: Text(
+                              textAlign: TextAlign.center,
+                              "Place Bid",
+                              style: TextStyle(
+                                color: Color(0xFFFFFFFF),
+                                fontWeight: FontWeight.w700,
+                                fontSize: 15,
+                                fontFamily: "Satoshi",
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
