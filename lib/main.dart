@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/view/figma_screen/nine_screen.dart';
+import 'package:todo_app/view/figma_screen/ten_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const NineScreen(),
+      home: const TenScreen(),
     );
   }
 }
