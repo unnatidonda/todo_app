@@ -67,6 +67,61 @@ class _ElevenScreenState extends State<ElevenScreen> {
       backgroundColor: Colors.black,
       body: Column(
         children: [
+          Stack(
+            children: [
+              Image.asset(
+                "assets/images/banner2.png",
+                width: 405,
+                height: 400,
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 50, top: 280),
+                child: Text(
+                  "Sneaker Collections",
+                  style: TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFFFFFFFF),
+                    fontFamily: "Teko",
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 50, top: 330),
+                child: Container(
+                  height: 40,
+                  width: 178,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFFFFFFF),
+                  ),
+                  child: const Text(
+                    textAlign: TextAlign.center,
+                    "See All Collections",
+                    style: TextStyle(
+                      fontFamily: "Satoshi",
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xFF000000),
+                      fontSize: 15,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+          Container(
+            height: 84,
+            width: 350,
+            decoration: const BoxDecoration(
+              color: Color(0xFF26282A),
+            ),
+            child: Image.asset(
+              "assets/images/adidas.png",
+              height: 64,
+              width: 64,
+            ),
+          ),
+
           Expanded(
             child: GridView.builder(
               itemCount: 4,
