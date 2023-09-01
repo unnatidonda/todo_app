@@ -1,4 +1,4 @@
-class thirdToDoModel {
+class ThirdToDoModel {
   String? price;
   String? mapImage;
   String? time;
@@ -6,7 +6,7 @@ class thirdToDoModel {
 
   String? image;
 
-  thirdToDoModel({
+  ThirdToDoModel({
     this.time,
     this.place,
     this.mapImage,
@@ -14,7 +14,7 @@ class thirdToDoModel {
     this.image,
   });
 
-  thirdToDoModel.fromJson(Map<String, dynamic> json) {
+  ThirdToDoModel.fromJson(Map<String, dynamic> json) {
     price = json["price"];
     place = json["place"];
     mapImage = json["mapImage"];

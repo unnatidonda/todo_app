@@ -1,20 +1,51 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/name_model.dart';
 
-class TodoScreen extends StatefulWidget {
-  const TodoScreen({super.key});
+import '../../data/res/constant/constant.dart';
+import '../../model/to_do_model.dart';
+
+class AddEditToDoView extends StatefulWidget {
+  final int? index;
+  const AddEditToDoView({
+    super.key,
+    this.index,
+  });
 
   @override
-  State<TodoScreen> createState() => _TodoScreenState();
+  State<AddEditToDoView> createState() => _AddEditToDoViewState();
 }
 
-class _TodoScreenState extends State<TodoScreen> {
-  List<NamesModel> namesList = [
-    NamesModel(name: "Unnati", age: 19, profession: "Developer", image: "kusch", details: Details(fathername: "nileshbhai")),
-    NamesModel(name: "Monika", age: 19, profession: "Banker", details: Details(fathername: "")),
-    NamesModel(name: "Riddhi", age: 19, profession: "Business", details: Details(fathername: "")),
-    NamesModel(name: "Krushika", age: 22, profession: "Doctor", details: Details(fathername: "")),
-  ];
+class _AddEditToDoViewState extends State<AddEditToDoView> {
+  String time = "";
+  TextEditingController titleController = TextEditingController();
+  TextEditingController contentController = TextEditingController();
+
+  TimeOfDay timeOfDay = TimeOfDay.now();
+  Future displayTimePicker(BuildContext context) async {
+    var timeData = await showTimePicker(
+      context: context,
+      initialTime: timeOfDay,
+    );
+
+    if (timeData != null) {
+      setState(() {
+        // time = "${timeData.hour}:${timeData.minute}";
+        time = timeData.format(context);
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    if (widget.index != null) {
+      titleController.text = Constant.toDoModelList[widget.index!].title!;
+      contentController.text = Constant.toDoModelList[widget.index!].content!;
+      time = Constant.toDoModelList[widget.index!].time!;
+    }
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +57,8 @@ class _TodoScreenState extends State<TodoScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
-        title: const Text(
-          "TodoScreen",
+        title: Text(
+          widget.index == null ? "Add To-do" : "Edit To-Do",
           style: TextStyle(
             color: Colors.black,
             fontSize: 26,
@@ -35,26 +66,7 @@ class _TodoScreenState extends State<TodoScreen> {
           ),
         ),
       ),
-      body:
-          // ListView.builder(
-          //     itemCount: namesList.length,
-          //     itemBuilder: (context, index) {
-          //       if (namesList[index].details.toString() == "null") {
-          //       } else {
-          //         return ListTile(
-          //           title: Text(namesList[index].name.toString()),
-          //           subtitle: Text(namesList[index].age.toString()),
-          //           trailing: IconButton(
-          //             icon: Icon(Icons.delete),
-          //             onPressed: () {
-          //               namesList.removeAt(index);
-          //               setState(() {});
-          //             },
-          //           ),
-          //         );
-          //       }
-          //     }));
-          ListView(
+      body: ListView(
         children: [
           Column(
             children: [
@@ -84,7 +96,7 @@ class _TodoScreenState extends State<TodoScreen> {
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.all(22),
                     isDense: true,
-                    hintText: "time picker",
+                    hintText: "contact",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                     ),
@@ -96,22 +108,23 @@ class _TodoScreenState extends State<TodoScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 25),
-              const Padding(
-                padding: EdgeInsets.only(left: 8, right: 8),
-                child: TextField(
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.all(22),
-                    isDense: true,
-                    hintText: "contact",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                    ),
-                    filled: true,
-                    fillColor: Color(0xFFFFFFFF),
-                    suffixIcon: Padding(
-                      padding: EdgeInsets.all(14),
-                    ),
+              const SizedBox(height: 15),
+              GestureDetector(
+                onTap: () => displayTimePicker(context),
+                child: Container(
+                  height: 45,
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Colors.black54, width: 1.2),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(time.isEmpty ? "hh : mm" : time),
+                      const SizedBox(width: 8),
+                      const Icon(Icons.date_range_rounded),
+                    ],
                   ),
                 ),
               ),
@@ -161,23 +174,45 @@ class _TodoScreenState extends State<TodoScreen> {
                     ),
                     // onPressed: onPress ?? () {},
 
-                    onPressed: () {},
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          textAlign: TextAlign.center,
-                          "Edit",
-                          style: TextStyle(
-                            fontSize: 17,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: "Poppins",
+                    onPressed: () {
+                      if (widget.index != null) {
+                        //? To Edit to-do model in to-doModel list
+                        Constant.toDoModelList[widget.index!] = ToDoModelData(
+                          title: titleController.text,
+                          content: contentController.text,
+                          time: time,
+                        );
+                        setState(() {});
+                      } else {
+                        //? To add to-do model in to-doModel list
+                        Constant.toDoModelList.add(
+                          ToDoModelData(
+                            title: titleController.text,
+                            content: contentController.text,
+                            time: time,
                           ),
-                        ),
-                      ],
-                    ),
+                        );
+                        setState(() {});
+                      }
+                      Navigator.pop(context);
+                    },
+                    child: Text(widget.index == null ? "Add To-do" : "Edit To-Do"),
                   ),
+                  // child: const Row(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     Text(
+                  //       textAlign: TextAlign.center,
+                  //       "Edit",
+                  //       style: TextStyle(
+                  //         fontSize: 17,
+                  //         color: Colors.white,
+                  //         fontWeight: FontWeight.w500,
+                  //         fontFamily: "Poppins",
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                 ],
               )
             ],

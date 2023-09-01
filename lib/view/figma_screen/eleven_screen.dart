@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/data/dummy_data/third_dummy_data.dart';
+
+import '../../model/forth_to_do_model.dart';
 
 class ElevenScreen extends StatefulWidget {
   const ElevenScreen({super.key});
@@ -8,58 +11,15 @@ class ElevenScreen extends StatefulWidget {
 }
 
 class _ElevenScreenState extends State<ElevenScreen> {
-  List<Map<String, dynamic>> arrayList = [
-    {
-      "color": const Color(0xFFF4F5F7),
-      "itemname": "Ultra adidas 4D shoes",
-      "image": "assets/images/shoes16.png",
-      "price": "\$110",
-    },
-    {
-      "color": const Color(0xFFF4F5F7),
-      "itemname": "Stan smith shoes.",
-      "image": "assets/images/shoes17.png",
-      "price": "\$110",
-    },
-    {
-      "color": const Color(0xFFF4F5F7),
-      "itemname": "4DWFWD x Parley",
-      "image": "assets/images/shoes18.png",
-      "price": "\$110",
-    },
-    {
-      "color": const Color(0xFFF4F5F7),
-      "itemname": "Adizero adios pro 3.0",
-      "image": "assets/images/shoes19.png",
-      "price": "\$110",
-    },
-  ];
-  List<Map<String, dynamic>> list = [
-    {
-      "color": const Color(0xFFF4F5F7),
-      "itemname": "Nike ACG Mountain Fly \nLow SE",
-      "image1": "assets/images/shoes20.png",
-      "price": "\$110",
-    },
-    {
-      "color": const Color(0xFFF4F5F7),
-      "itemname": "Nike Air Force 1 '07 ESS",
-      "image1": "assets/images/shoes21.png",
-      "price": "\$110",
-    },
-    {
-      "color": const Color(0xFFF4F5F7),
-      "itemname": "Nike Air Max Dawn SE",
-      "image1": "assets/images/shoes23.png",
-      "price": "\$110",
-    },
-    {
-      "color": const Color(0xFFF4F5F7),
-      "itemname": "Nike Wearallday",
-      "image1": "assets/images/shoes24.png",
-      "price": "\$110",
-    },
-  ];
+  List<TodoModelData> toDoModelList = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    toDoModelList = itemList.map((value) => TodoModelData.fromJson(value)).toList();
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -124,15 +84,16 @@ class _ElevenScreenState extends State<ElevenScreen> {
 
           Expanded(
             child: GridView.builder(
-              itemCount: 4,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              itemCount: toDoModelList.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 mainAxisExtent: 300,
               ),
               itemBuilder: (context, index) => Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: arrayList[index]["color"],
+                  // itemList[index].image!
+                  color: Color(0xFFF4F5F7),
                 ),
                 child: Container(
                   height: 294,
@@ -148,7 +109,7 @@ class _ElevenScreenState extends State<ElevenScreen> {
                         Stack(
                           children: [
                             Image.asset(
-                              arrayList[index]["image"],
+                              toDoModelList[index].image!,
                               height: 150,
                               width: 171,
                             ),
@@ -188,7 +149,7 @@ class _ElevenScreenState extends State<ElevenScreen> {
                         ),
                         const SizedBox(height: 5),
                         Text(
-                          arrayList[index]["itemname"],
+                          toDoModelList[index].itemname!,
                           style: const TextStyle(
                             color: Color(0xFFFFFFFF),
                             fontSize: 16,
@@ -206,7 +167,7 @@ class _ElevenScreenState extends State<ElevenScreen> {
                         ),
                         const SizedBox(height: 5),
                         Text(
-                          arrayList[index]["price"],
+                          toDoModelList[index].price!,
                           style: const TextStyle(
                             color: Color(0xFFFFFFFF),
                             fontSize: 20,
@@ -262,7 +223,7 @@ class _ElevenScreenState extends State<ElevenScreen> {
           // SizedBox(height: 15),
           Expanded(
             child: GridView.builder(
-              itemCount: list.length,
+              itemCount: toDoModelList.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 mainAxisExtent: 320,
@@ -270,7 +231,7 @@ class _ElevenScreenState extends State<ElevenScreen> {
               itemBuilder: (context, index) => Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: list[index]["color"],
+                  color: Color(0xFFF4F5F7),
                 ),
                 child: Container(
                   height: 294,
@@ -286,7 +247,7 @@ class _ElevenScreenState extends State<ElevenScreen> {
                         Stack(
                           children: [
                             Image.asset(
-                              arrayList[index]["image"],
+                              toDoModelList[index].image!,
                               height: 150,
                               width: 171,
                             ),
@@ -326,7 +287,7 @@ class _ElevenScreenState extends State<ElevenScreen> {
                         ),
                         const SizedBox(height: 5),
                         Text(
-                          list[index]["itemname"],
+                          toDoModelList[index].itemname!,
                           style: const TextStyle(
                             color: Color(0xFFFFFFFF),
                             fontSize: 13,
@@ -344,7 +305,7 @@ class _ElevenScreenState extends State<ElevenScreen> {
                         ),
                         const SizedBox(height: 5),
                         Text(
-                          list[index]["price"],
+                          toDoModelList[index].price!,
                           style: const TextStyle(
                             color: Color(0xFFFFFFFF),
                             fontSize: 20,

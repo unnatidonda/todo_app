@@ -10,12 +10,12 @@ class TenScreen extends StatefulWidget {
 }
 
 class _TenScreenState extends State<TenScreen> {
-  List<thirdToDoModel> historyList = [];
+  List<ThirdToDoModel> historyList = [];
 
   @override
   void initState() {
     // TODO: implement initState
-    historyList = historyList.map((value) => thirdToDoModel.fromJson(value as Map<String, dynamic>)).toList();
+    historyList = historyList.map((value) => ThirdToDoModel.fromJson(value as Map<String, dynamic>)).toList();
 
     super.initState();
   }
