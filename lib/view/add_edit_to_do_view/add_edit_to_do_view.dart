@@ -71,9 +71,10 @@ class _AddEditToDoViewState extends State<AddEditToDoView> {
           Column(
             children: [
               const SizedBox(height: 25),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.only(left: 8, right: 8),
                 child: TextField(
+                  controller: titleController,
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.all(22),
                     isDense: true,
@@ -90,9 +91,10 @@ class _AddEditToDoViewState extends State<AddEditToDoView> {
                 ),
               ),
               const SizedBox(height: 25),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.only(left: 8, right: 8),
                 child: TextField(
+                  controller: contentController,
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.all(22),
                     isDense: true,
