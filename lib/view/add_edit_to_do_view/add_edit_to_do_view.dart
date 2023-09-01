@@ -59,7 +59,7 @@ class _AddEditToDoViewState extends State<AddEditToDoView> {
         backgroundColor: Colors.blueAccent,
         title: Text(
           widget.index == null ? "Add To-do" : "Edit To-Do",
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.black,
             fontSize: 26,
             fontWeight: FontWeight.w700,
