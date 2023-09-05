@@ -26,11 +26,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green,
-        title: const Text(
+        title: Text(
           "Home Screen",
           style: TextStyle(
             color: Colors.black,
-            fontSize: 26,
+            fontSize: screenHeight / 30,
             fontWeight: FontWeight.w700,
           ),
         ),
@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(15),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                       color: CupertinoColors.inactiveGray,
                       blurRadius: 10,
