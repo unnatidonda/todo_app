@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:todo_app/view/convert_data_screens/second_screen.dart';
 
 import '../../data/dummy_data/user_json_data.dart';
 import '../../model/user_model.dart';
@@ -63,7 +65,7 @@ class _FirstScreenState extends State<FirstScreen> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const HomeSecondView(),
+              builder: (context) => const SecondScreen(),
             ),
           );
         },
